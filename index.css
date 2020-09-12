@@ -1,15 +1,82 @@
-#img {
-  	max-width: 100%;
-  	height: auto;
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #101357;
+	font-size: 2vh;
+}
+
+.header {
+	background-color: white;
+	color: black;
+	width: 80%;
+    height: 10vh;
+	position: fixed;
+    left: 10%;
+    top: 2vh;
+	z-index: 1;
+	border-radius: 10px 10px 0px 0px;
+	border-bottom: 1px solid black;
 }
 
 .main-container {
+	background: pink;
+	position: absolute;
+	top: 12vh;
 	width: 80%;
+	height: 76vh;
+	left: 10%;
+	display: block;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+.img-container {
+	max-width: 600px;
+	width: 100%;
 	margin: auto;
 }
 
+.main-container::-webkit-scrollbar {
+	display: none;
+}
+
+.footer {
+	background: white;
+	color: black;
+	width: 80%;
+	height: 10vh;
+	position: fixed;
+	left: 10%;
+	bottom: 2vh;
+	z-index: 1;
+	text-align: center;
+	border-radius: 0px 0px 10px 10px;
+	border-top: 1px solid black;
+}
+
 @media screen and (max-width: 800px) {
-	.main-container {
+	.main-container, .header, .footer {
 		width: 100%;
+		left: 0px;
+		right: 0px;
 	}
 }
+
+@media screen and (max-height: 500px) {
+	h1 {
+		font-size: 2.5em;
+	}
+
+	p {
+		font-size: 2em;
+	}
+}
+
+#img {
+  	max-width: 100%;
+	height: auto;
+
+}
+

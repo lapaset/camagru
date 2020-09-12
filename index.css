@@ -1,0 +1,15 @@
+#img {
+  	max-width: 100%;
+  	height: auto;
+}
+
+.main-container {
+	width: 80%;
+	margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+	.main-container {
+		width: 100%;
+	}
+}

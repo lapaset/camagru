@@ -20,6 +20,17 @@ body {
 	border-bottom: 1px solid black;
 }
 
+.logo-container {
+	width: 80%;
+	float: left;
+}
+
+.login-controls {
+	width: 20%;
+	float: left;
+	padding-top: 2vh;
+}
+
 .main-container {
 	background: pink;
 	position: absolute;
@@ -52,6 +63,7 @@ body {
 	bottom: 2vh;
 	z-index: 1;
 	text-align: center;
+	padding-top: 2vh;
 	border-radius: 0px 0px 10px 10px;
 	border-top: 1px solid black;
 }
@@ -69,7 +81,7 @@ body {
 		font-size: 2.5em;
 	}
 
-	p {
+	a, p {
 		font-size: 2em;
 	}
 }

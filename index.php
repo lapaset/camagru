@@ -4,12 +4,12 @@
 	<title>camagru</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="styles/index.css" />
 </head>
 <body>
 	<div class="header">
 		<div class="logo-container">
-			<h1>camagru</h1>
+			<img id="logo" src="imgs/logo8.png" title="camagru logo" alt="camagru logo" />
 		</div>
 		<div class="login-controls">
 			<a href="#" alt="login">login</a> | 
@@ -27,7 +27,17 @@
 		</div>
 	</div>
 	<div class="footer">
-		<a href="srcs/editor.php" alt="add photo">add photo</p>
+		<div class="footer-side"></div>
+		<div class="footer-mid">
+			<a href="srcs/editor.php" alt="add photo" title="add photo">
+				<img class="footer-icon" src="imgs/add_a_photo.png" title="add photo" alt="add photo" />
+			</a>
+		</div>
+		<div class="footer-side">
+			<a href="#" alt="settings" title="settings">
+				<img class="footer-icon" src="imgs/settings.png" title="settings" alt="settings" />
+			</a>
+		</div>
 	</div>
 </body>
 </html>

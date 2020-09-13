@@ -1,52 +1,4 @@
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background: #101357;
-	font-size: 2vh;
-}
-
-.header {
-	background-color: white;
-	color: black;
-	width: 80%;
-    height: 10vh;
-	position: fixed;
-    left: 10%;
-    top: 2vh;
-	z-index: 1;
-	border-radius: 10px 10px 0px 0px;
-	border-bottom: 1px solid black;
-}
-
-.logo-container {
-	width: 80%;
-	float: left;
-}
-
-.login-controls {
-	width: 20%;
-	float: left;
-	padding-top: 2vh;
-}
-
-.main-container {
-	background: pink;
-	position: absolute;
-	top: 12vh;
-	width: 80%;
-	height: 86vh;
-	left: 10%;
-	display: block;
-	overflow-y: scroll;
-	scrollbar-width: none;
-	border-radius: 0px 0px 10px 10px;
-}
-
-.main-container::-webkit-scrollbar {
-	display: none;
-}
+@import "layout.css";
 
 .preview-container {
 	max-width: 600px;
@@ -122,22 +74,4 @@ label img {
   
 input[type="checkbox"] {
 	display: none;
-}
-
-@media screen and (max-width: 800px) {
-	.main-container, .header {
-		width: 100%;
-		left: 0px;
-		right: 0px;
-	  }
-}
-
-@media screen and (max-height: 500px) {
-	h1 {
-		font-size: 2.5em;
-	}
-
-	a, p {
-		font-size: 2em;
-	}
 }

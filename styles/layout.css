@@ -1,0 +1,139 @@
+:root {
+	--body-bg: #101357;
+	--header-bg: white;
+	--main-bg: #fea49f;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--body-bg);
+	font-size: 2vh;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.header {
+	background-color: var(--header-bg);
+	color: black;
+	width: 80%;
+    height: 10vh;
+	position: fixed;
+    left: 10%;
+    top: 2vh;
+	z-index: 1;
+	border-radius: 10px 10px 0px 0px;
+	border-bottom: 1px solid black;
+}
+
+.logo-container {
+	width: 80%;
+	height: 100%;
+	padding: 0vh;
+	float: left;
+}
+
+#logo {
+	height: 100%;
+	width: auto;
+}
+
+.login-controls {
+	width: 20%;
+	float: left;
+	padding-top: 2vh;
+}
+
+.main-container {
+	background: var(--main-bg);
+	position: absolute;
+	top: 12vh;
+	width: 80%;
+	height: 76vh;
+	left: 10%;
+	display: block;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+.img-container {
+	max-width: 600px;
+	width: 100%;
+	margin: auto;
+}
+
+.main-container::-webkit-scrollbar {
+	display: none;
+}
+
+.footer {
+	background: white;
+	color: black;
+	width: 80%;
+	height: 10vh;
+	position: fixed;
+	text-align: center;
+	left: 10%;
+	bottom: 2vh;
+	z-index: 1;
+	padding: 2vh;
+	border-radius: 0px 0px 10px 10px;
+	border-top: 1px solid black;
+}
+
+.footer-mid {
+	width: 60%;
+	height: 100%;
+	float: left;
+}
+
+.footer-side {
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+
+.footer-icon {
+	height: 100%;
+	width: auto;
+}
+
+@media screen and (max-width: 800px) {
+	.main-container, .header, .footer {
+		width: 100%;
+		left: 0px;
+		right: 0px;
+	}
+
+	.header {
+		top: 0px;
+	}
+
+	.footer {
+		bottom: 0px
+	}
+
+	.main-container {
+		top: 10vh;
+		height: 80vh;
+	}
+}
+
+@media screen and (max-height: 500px) {
+	h1 {
+		font-size: 2.5em;
+	}
+
+	a, p {
+		font-size: 2em;
+	}
+}

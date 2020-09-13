@@ -1,5 +1,9 @@
 @import "layout.css";
 
+.header {
+	left: 0vh;
+}
+
 .preview-container {
 	max-width: 600px;
 	width: 100%;
@@ -55,13 +59,13 @@
 }
 
 .filter-tn {
-	padding: 1px;
+	padding: 0.1rem;
 }
 
 label img {
 	height: 100px;
 	width: 150px;
-	background: thistle;
+	background: var(--highlight2);
 }
 
 :disabled+label img {
@@ -69,9 +73,26 @@ label img {
 }
   
 :checked+label img {
-	background: teal;
+	background: var(--highlight1);
 }
   
 input[type="checkbox"] {
 	display: none;
+}
+
+#take-photo-icon {
+	height: 100%;
+	width: auto;
+}
+
+#refresh-icon {
+	height: 100%;
+	width: auto;
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+	.header {
+		display: none;
+	}
 }

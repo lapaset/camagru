@@ -1,13 +1,17 @@
 @import "layout.css";
 
+.main-container {
+	height: 100vh;
+}
+
 .header {
 	left: 0vh;
+	z-index: 3;
 }
 
 .preview-container {
 	max-width: 600px;
 	width: 100%;
-	padding-top: 6/4;
 	margin: auto;
 	position: relative;
 }
@@ -47,7 +51,7 @@
 	background: white;
 	max-width: 600px;
 	width: auto;
-	height: 120px;
+	height: 110px;
 	margin: auto;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -63,8 +67,8 @@
 }
 
 label img {
-	height: 100px;
-	width: 150px;
+	height: 90px;
+	width: 135px;
 	background: var(--highlight2);
 }
 
@@ -91,8 +95,51 @@ input[type="checkbox"] {
 	display: none;
 }
 
+.lens-container {
+	width: 4rem;
+	height: 4rem;	
+	position: absolute;
+	bottom: 0.1rem;
+	left: 45%;
+	z-index: 3;
+}
+
+.circle-container {
+	padding: 1rem;
+}
+
+.grid-container {
+	display: grid;
+	grid-gap: 0.5rem;
+	width: 100%;
+	grid-template-columns: auto auto auto;
+	margin-top: 1rem;
+}
+
+.grid-item {
+	width: 100%;
+}
+
+.grid-image {
+	width: 100%;
+	height: auto;
+}
+
 @media screen and (max-width: 600px) {
 	.header {
 		display: none;
+	}
+
+	.circle-container {
+		display: block;
+	}
+
+	.lens-container {
+		width: 16vw;
+		height: 16vw;
+		left: 40vw;
+	}
+	.grid-container {
+		grid-template-columns: auto auto;
 	}
 }

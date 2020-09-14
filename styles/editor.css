@@ -4,11 +4,6 @@
 	height: 100vh;
 }
 
-.header {
-	left: 0vh;
-	z-index: 3;
-}
-
 .preview-container {
 	max-width: 600px;
 	width: 100%;
@@ -126,10 +121,6 @@ input[type="checkbox"] {
 }
 
 @media screen and (max-width: 600px) {
-	.header {
-		display: none;
-	}
-
 	.circle-container {
 		display: block;
 	}

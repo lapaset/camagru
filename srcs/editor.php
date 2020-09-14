@@ -2,7 +2,7 @@
 	$footer_left = "frontpage";
 	$footer_mid = "profile";
 	$footer_right = "logout";
-	$path_to_imgs = "../";
+	$path_to_icons = "../";
 	$path_to_srcs = "";
 ?>
 
@@ -15,13 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../styles/editor.css" />
 </head>
 <body>
-	<div class="header">
-		<div class="frontpage-link">
-			<a href="../index.php" alt="frontpage" title="frontpage">
-				<img id="back-icon" src="../imgs/back.png" title="back" alt="back" />
-			</a>
-		</div>
-	</div>
+	<?php require_once 'components/frontpage_arrow.php' ?>
 	<div class="main-container">
 		<?php require_once 'components/editor_preview.php'; ?>
 

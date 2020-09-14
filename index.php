@@ -1,8 +1,17 @@
 <?php
-	$footer_left = "editor";
-	$footer_mid = "profile";
+	session_start();
+
+	$footer_left = "";
+	$footer_mid = "";
 	$footer_right = "login";
-	$path_to_imgs = "";
+
+	if ($_SESSION['user']) {
+		$footer_left = "editor";
+		$footer_mid = "profile";
+		$footer_right = "logout";
+	}
+
+	$path_to_icons = "";
 	$path_to_srcs = "srcs/";
 ?>
 
@@ -15,31 +24,35 @@
 	<link rel="stylesheet" type="text/css" href="styles/index.css" />
 </head>
 <body>
-	<?php require_once 'srcs/components/header.php'; ?>
+	<?php
+		if (!$_SESSION['user'])
+			echo '<div class="header">
+					<a id="register" href="srcs/register.php" alt="register" title="register">register</a>
+				</div>';
+	?>
 
 	<div class="main-container">
 		<h1>camagru</h1>
-		<div class="img-container">
-			<img id="img" src="imgs/loading.png" />
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo necessitatibus sequi rerum, architecto vero neque modi! Velit repellat repellendus necessitatibus beatae, maxime accusamus dicta recusandae tempore voluptatum, eum labore vero!</p>
-		</div>
-		<div class="img-container">
-			<img id="img" src="imgs/loading.png" />
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo necessitatibus sequi rerum, architecto vero neque modi! Velit repellat repellendus necessitatibus beatae, maxime accusamus dicta recusandae tempore voluptatum, eum labore vero!</p>
-		</div>
+
+		<?php require_once 'srcs/components/img_stream.php'; ?>
+
 		<div style="text-align: right; padding: 1rem; border-top: 1px solid black" >
 			Thank you for your visit!<br />
-			Liisa Lahti 2020<br/>
+			<a href="http://github.com/lapaset" title="my github profile" alt="my github profile" >Liisa Lahti</a> 2020<br/>
 		</div>
 	</div>
 
-	<div class="left-bottom-corner">
-		<a href="srcs/editor.php" alt="add photo" title="add photo">
-			<div class="circle-container">
-				<img id="add" src="imgs/add.png" title="add photo" alt="add photo" />
-			</div>
-		</a>
-	</div>
+	<?php
+		if ($_SESSION['user'])
+			echo '	<div class="left-bottom-corner">
+						<a href="srcs/editor.php" alt="add photo" title="add photo">
+							<div class="circle-container">
+								<img id="add" src="icons/add.png" title="add photo" alt="add photo" />
+							</div>
+						</a>
+					</div>';
+	?>
+
 
 	<?php 
 		require_once 'srcs/components/footer.php';

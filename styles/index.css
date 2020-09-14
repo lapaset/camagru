@@ -1,7 +1,31 @@
 @import "layout.css";
 
-#img {
-  	max-width: 100%;
+.photo-container {
+  	padding-bottom: 2rem;
+}
+
+.header {
+	left: 75%;
+	font-size: 1.5rem;
+}
+
+#register {
+	text-decoration: underline;
+	background: var(--footer-bg);
+	color: black;
+	padding: 1rem;
+}
+
+.stream-img {
+	width: 100%;
 	height: auto;
 }
 
+@media screen and (max-width: 600px) {	
+	.header {
+		font-size: 1em;
+		display: block;
+		padding-right: 2rem;
+		text-align: right;
+	}
+}

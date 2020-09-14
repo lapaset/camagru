@@ -1,3 +1,5 @@
+<?php require_once 'footer_links.php'; ?>
+
 	<div class="mobile-footer">
 		<div class="mobile-footer-img">
 			<?php 

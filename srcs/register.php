@@ -46,9 +46,10 @@
                                                     ':pw' => $pw,
                                                     ':verify_hash' => $verify_hash));
 
-                        require_once 'verification_email.php';
-
+                        require_once 'emails/verification_email.php';
+                        mail($email, $subject, $message, $headers);
                         echo '<div>Verification message sent, check your email.</div>';
+                        
                     } catch (PDOException $e) {
                         if (strpos($e->getMessage(), 'Duplicate entry'))
                             echo    '<div>

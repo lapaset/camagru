@@ -20,6 +20,11 @@ h1 {
 	font-size: 8rem;
 }
 
+h2 {
+	text-align: center;
+	font-size: 3rem;
+}
+
 .header {
 	width: 15%;
 	height: 6vh;
@@ -159,6 +164,25 @@ input[type=image] {
 	width: 2em;
 }
 
+.grid-container {
+	display: grid;
+	grid-gap: 0.5rem;
+	width: 90%;
+	grid-template-columns: auto auto auto;
+	margin: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.grid-item {
+	width: 100%;
+}
+
+.grid-image {
+	width: 100%;
+	height: auto;
+}
+
 @media screen and (max-width: 600px) {
 	.main-container {
 		width: 100%;
@@ -183,6 +207,11 @@ input[type=image] {
 	h1 {
 		font-size: 20vw;
 	}
+
+	.grid-container {
+		grid-template-columns: auto auto;
+	}
+
 }
 
 @media screen and (max-height: 500px) {

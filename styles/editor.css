@@ -99,23 +99,6 @@ input[type="checkbox"] {
 	padding: 1rem;
 }
 
-.grid-container {
-	display: grid;
-	grid-gap: 0.5rem;
-	width: 100%;
-	grid-template-columns: auto auto auto;
-	margin-top: 1rem;
-}
-
-.grid-item {
-	width: 100%;
-}
-
-.grid-image {
-	width: 100%;
-	height: auto;
-}
-
 #save-form {
 	display: none;
 }
@@ -134,9 +117,4 @@ input[type="checkbox"] {
 		height: 16vw;
 		left: 40vw;
 	}
-	
-	.grid-container {
-		grid-template-columns: auto auto;
-	}
-
 }

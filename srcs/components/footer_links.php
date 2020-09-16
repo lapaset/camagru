@@ -19,8 +19,4 @@
 					<img id="add-icon" src="'.$path_to_icons.'icons/add.png" title="add photo" alt="add photo" />
 				</a>';
 
-	$upload = 	'<a href="'.$path_to_srcs.'upload.php" alt="upload photo" title="upload photo">
-					<img id="upload-icon" src="'.$path_to_icons.'icons/upload.png" title="upload photo" alt="upload photo" />
-				</a>';
-
 ?>

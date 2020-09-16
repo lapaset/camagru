@@ -4,7 +4,7 @@
 		header("Location: ../index.php");
 
 	$footer_left = "frontpage";
-	$footer_mid = "upload";
+	$footer_mid = "";
 	$footer_right = "logout";
 	$path_to_icons = "../";
 	$path_to_srcs = "";
@@ -21,11 +21,17 @@
 <body>
 	<?php require_once 'components/frontpage_arrow.php' ?>
 	<div class="main-container">
-		<?php require_once 'components/editor_preview.php'; ?>
 
-		<div class="info">
-			Select at least one filter to take photo
+		<div id="upload-form">
+			<div class="form-container">
+				select at least one filter or upload an image to take a photo<br />
+				(recommended size 600 x 400 px)
+				<input type="file" id="image-loader" name="imageLoader"
+					accept="image" />
+			</div>
 		</div>
+
+		<?php require_once 'components/editor_preview.php'; ?>
 
 		<div class="filter-container">
 			<div id="filter-tn-row">
@@ -47,10 +53,30 @@
 
 		<canvas id="canvas"></canvas>
 
-		<script src="js/editor.js" ></script>
+		
 	</div>
 
-	<?php
-		require_once 'components/footer.php';
-		require_once 'components/mobile_footer.php';
-	?>
+	<?php require_once 'components/footer.php'; ?>
+
+	<div class="mobile-footer">
+		<div class="mobile-footer-img">
+			<?php 
+				if ($footer_left)
+					echo ${$footer_left};
+			?>
+		</div>
+		<div class="mobile-footer-img">
+		</div>
+		<div class="mobile-footer-img">
+			<?php 
+				if ($footer_right)
+					echo ${$footer_right};
+			?>
+		</div>	
+	</div>
+
+	<script src="js/editor.js" ></script>
+	
+</body>
+</html>
+	

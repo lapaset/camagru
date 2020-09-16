@@ -134,7 +134,9 @@ input[type="checkbox"] {
 		height: 16vw;
 		left: 40vw;
 	}
+	
 	.grid-container {
 		grid-template-columns: auto auto;
 	}
+
 }

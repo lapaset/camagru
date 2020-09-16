@@ -1,3 +1,4 @@
+<h2>Your photos</h2>
 <div class="grid-container">
 	<?php
 		//todo confirm delete

@@ -1,6 +1,10 @@
 <?php
+	session_start();
+	if (!$_SESSION['user'])
+		header("Location: ../index.php");
+
 	$footer_left = "frontpage";
-	$footer_mid = "profile";
+	$footer_mid = "upload";
 	$footer_right = "logout";
 	$path_to_icons = "../";
 	$path_to_srcs = "";
@@ -19,20 +23,31 @@
 	<div class="main-container">
 		<?php require_once 'components/editor_preview.php'; ?>
 
+		<div class="info">
+			Select at least one filter to take photo
+		</div>
+
 		<div class="filter-container">
 			<div id="filter-tn-row">
 				<?php require_once 'components/filter_checkboxes.php'; ?>
 			</div>
 		</div>
 
-		<div>
-			save form here
+		<div class="form-container">
+			<form id="save-form" method="post" action="save_img.php">
+				<input type="hidden" id="filters" name="filters" />
+				<input type="hidden" id="image-data" name="image-data" />
+				<input type="text" id="description" name="description"
+					value="" placeholder="Description" />
+				<input type="button" onclick="save()" value="Save" />
+			</form>
 		</div>
-
-		<?php require_once 'components/photo_grid.php'; ?>
-
+		
+		<?php require_once 'components/user_photo_grid.php'; ?>
 
 		<canvas id="canvas"></canvas>
+
+		<script src="js/editor.js" ></script>
 	</div>
 
 	<?php

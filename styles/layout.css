@@ -122,10 +122,6 @@ h1 {
 	padding: 1rem;
 }
 
-#add {
-	width: 100%;
-}
-
 .form-container {
 	width: 80%;
 	margin: auto;
@@ -139,7 +135,28 @@ input {
 
 input[type=password], input[type=text], input[type=email] {
 	width: 100%;
+}
 
+input[type=image] {
+	padding: 0rem;
+	margin: 0rem;
+	float: right;
+}
+
+.like-icon {
+	height: 1.5em;
+	width: auto;
+}
+
+.trash-icon {
+	height: 2em;
+	width: auto;
+}
+
+.delete-image-form-container {
+	float: right;
+	height: 2em;
+	width: 2em;
 }
 
 @media screen and (max-width: 600px) {

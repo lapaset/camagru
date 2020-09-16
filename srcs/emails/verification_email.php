@@ -10,5 +10,4 @@
 
     $message = wordwrap($message, 70, "\n");
     $headers = 'From:noreply@camagru.fi'."\r\n";
-    mail($email, $subject, $message, $headers);
 ?>

@@ -1,9 +1,5 @@
 @import "layout.css";
 
-.main-container {
-	height: 100vh;
-}
-
 .preview-container {
 	max-width: 600px;
 	width: 100%;
@@ -43,7 +39,7 @@
 }
 
 .filter-container {
-	background: white;
+	background: lightgrey;
 	max-width: 600px;
 	width: auto;
 	height: 110px;
@@ -64,7 +60,7 @@
 label img {
 	height: 90px;
 	width: 135px;
-	background: var(--highlight2);
+	background: white;
 }
 
 :disabled+label img {
@@ -79,12 +75,12 @@ input[type="checkbox"] {
 	display: none;
 }
 
-#take-photo-icon {
+#take-photo-button {
 	height: 100%;
 	width: auto;
 }
 
-#refresh-icon {
+#refresh-button {
 	height: 100%;
 	width: auto;
 	display: none;
@@ -118,6 +114,14 @@ input[type="checkbox"] {
 .grid-image {
 	width: 100%;
 	height: auto;
+}
+
+#save-form {
+	display: none;
+}
+
+#upload-button {
+	width: 100%;
 }
 
 @media screen and (max-width: 600px) {

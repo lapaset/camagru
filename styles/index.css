@@ -21,6 +21,10 @@
 	height: auto;
 }
 
+#add {
+	width: 100%;
+}
+
 @media screen and (max-width: 600px) {	
 	.header {
 		font-size: 1em;

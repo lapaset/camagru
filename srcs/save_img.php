@@ -20,16 +20,17 @@
             $table_likes = 'CREATE TABLE IF NOT EXISTS '.$filename.'_likes (
                 user_id INT(4) UNSIGNED NOT NULL UNIQUE
             );';
-            $table_comments = 'CREATE TABLE IF NOT EXISTS '.$id.'_comments (
+            $table_comments = 'CREATE TABLE IF NOT EXISTS '.$filename.'_comments (
                 user_id INT(4) UNSIGNED NOT NULL,
+                user_name VARCHAR(30) NOT NULL,
                 comment VARCHAR(60) NOT NULL,
                 date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
             );';
 
-            $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, description)
-                VALUES (:id, :user_id, :description);');
+            $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, user_name, description)
+                VALUES (:id, :user_id, :user_name, :description);');
             $img_to_add->execute(array(':id' => $filename, ':user_id' => $_SESSION['user_id'],
-                                        ':description' => $description));
+                                        ':user_name' => $_SESSION['user'], ':description' => $description));
             $pdo->query($table_likes);
             $pdo->query($table_comments);
 

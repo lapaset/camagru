@@ -21,10 +21,21 @@
 .stream-img {
 	width: 100%;
 	height: auto;
+	padding-bottom: 1rem;
+}
+
+.like-icon {
+	height: 1.2rem;
+	width: auto;
+	margin: 0rem;
 }
 
 #add {
 	width: 100%;
+}
+
+input[type=image] {
+	height: 1.2rem;
 }
 
 @media screen and (max-width: 600px) {	

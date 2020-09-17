@@ -140,9 +140,13 @@ input[type=image] {
 	margin: 0rem;
 }
 
-.like-icon {
-	height: 1.5em;
-	width: auto;
+.comment-form-container input[type=text] {
+	width: 88%;
+}
+
+.comment-form-container input[type=submit] {
+	width: 10%;
+	float: right;
 }
 
 .trash-icon {

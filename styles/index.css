@@ -1,7 +1,9 @@
 @import "layout.css";
 
 .photo-container {
-  	padding-bottom: 2rem;
+	width: 90%;
+	margin: auto;
+	padding-bottom: 2rem;
 }
 
 .header {
@@ -31,5 +33,9 @@
 		display: block;
 		padding-right: 2rem;
 		text-align: right;
+	}
+
+	.photo-container {
+		width: 100%;
 	}
 }

@@ -13,6 +13,12 @@
 
 	$path_to_icons = "";
 	$path_to_srcs = "srcs/";
+	
+	/*if ($_SESSION['user'] && $_POST && $_POST['photo_id']) {
+		require_once 'config/database.php';
+		$pdo->query('INSERT IGNORE INTO '.$_POST['photo_id'].'_likes(user_id)
+						VALUES ('.$_SESSION['user_id'].');');
+	}*/
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/index.css" />
 </head>
 <body>
+
 	<?php
 		if (!$_SESSION['user'])
 			echo '<div class="header">
@@ -53,6 +60,20 @@
 					</div>';
 	?>
 
+	<script>
+		var mainContainer = document.querySelector('.main-container');
+
+        document.addEventListener("DOMContentLoaded", function(event) { 
+			console.log('should scroll now', mainContainer);
+            var scrollpos = localStorage.getItem('scrollpos');
+			if (scrollpos)
+				mainContainer.scrollTop = scrollpos;
+        });
+
+        window.onbeforeunload = function(e) {
+            localStorage.setItem('scrollpos', mainContainer.scrollTop);
+        };
+    </script>
 
 	<?php 
 		require_once 'srcs/components/footer.php';

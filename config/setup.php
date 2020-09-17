@@ -7,27 +7,36 @@
         $dir = '../imgs';
         $files = scandir($dir);
 
-        $table_photos = "CREATE TABLE IF NOT EXISTS photos (
+        $table_photos = 'CREATE TABLE IF NOT EXISTS photos (
             id VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
             user_id INT(4) UNSIGNED NOT NULL,
             description VARCHAR(60) NOT NULL,
-            likes INT(4) NOT NULL DEFAULT 0,
             date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-        );";
+        );';
 
         $pdo->query($table_photos);
 
         foreach ($files as $filename) {
 
-            if (strpos($filename, '.jpg') === strlen($filename) - 4 ||
-                strpos($filename, '.png') === strlen($filename) - 4 ||
-                strpos($filename, '.jpeg') === strlen($filename) - 5) {
+            if (strpos($filename, '.png') === strlen($filename) - 4 ) {
 
-                    $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, description)
-                        VALUES (:id, 1, :description);');
-                    $img_to_add->execute(array(':id' => $filename, ':description' => "test"));
-                }
-          }
+                $id = substr($filename, 0, -4);
+                $table_likes = 'CREATE TABLE IF NOT EXISTS '.$id.'_likes (
+                    user_id INT(4) UNSIGNED NOT NULL UNIQUE
+                );';
+                $table_comments = 'CREATE TABLE IF NOT EXISTS '.$id.'_comments (
+                    user_id INT(4) UNSIGNED NOT NULL,
+                    comment VARCHAR(60) NOT NULL,
+                    date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                );';
+
+                $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, description)
+                    VALUES (:id, 1, :description);');
+                $img_to_add->execute(array(':id' => $id, ':description' => "Your only limit is imagination"));
+                $pdo->query($table_likes);
+                $pdo->query($table_comments);
+            }
+        }
     }
 
     try {
@@ -51,10 +60,13 @@
         $pdo->query($def_user);
         $pdo->query($second_user);
 
-        $photos_exist = $pdo->prepare("SELECT * FROM information_schema.tables WHERE table_schema = 'llahti' AND table_name = 'photos' LIMIT 1;");
-        $photos_exist->execute();
+        $photos_exist = $pdo->query("SELECT * FROM information_schema.tables
+                                        WHERE table_schema = 'llahti' 
+                                        AND table_name = 'photos' LIMIT 1;");
+
         if ($photos_exist->rowCount() < 1)
             init_photos($pdo);
+
         echo "Database setup succesfull";
 
     } catch (PDOException $e) {

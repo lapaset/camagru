@@ -12,16 +12,27 @@
     }
 
     function save_img($img, $description) {
-        $filename = uniqid().'.png';
-        imagepng($img, '../imgs/'.$filename);
+        $filename = uniqid();
+        imagepng($img, '../imgs/'.$filename.'.png');
         
         require_once '../config/database.php';
-        //user id!!!!!
         try {
+            $table_likes = 'CREATE TABLE IF NOT EXISTS '.$filename.'_likes (
+                user_id INT(4) UNSIGNED NOT NULL UNIQUE
+            );';
+            $table_comments = 'CREATE TABLE IF NOT EXISTS '.$id.'_comments (
+                user_id INT(4) UNSIGNED NOT NULL,
+                comment VARCHAR(60) NOT NULL,
+                date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );';
+
             $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, description)
                 VALUES (:id, :user_id, :description);');
             $img_to_add->execute(array(':id' => $filename, ':user_id' => $_SESSION['user_id'],
                                         ':description' => $description));
+            $pdo->query($table_likes);
+            $pdo->query($table_comments);
+
         } catch (PDOException $e) {
             echo 'Adding the photo failed: '.$e->getMessage();
         }

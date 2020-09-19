@@ -16,8 +16,8 @@ if (navigator.mediaDevices.getUserMedia) {
 		.then(function (stream) {
 			video.srcObject = stream;
 		})
-		.catch(function (err0r) {
-			console.log("Could not stream video");
+		.catch(function (error) {
+			console.log("Could not stream video", error);
 		});
 }
 

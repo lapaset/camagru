@@ -28,13 +28,12 @@
                 $email = $_POST['email'];
                 $verify_hash = uniqid();
 
-                //should password have at least one number or smthing? can preg_match be used??
-                if (!$username || strlen($username) < 4)
-                    echo '<div>Username must be at least 4 characters.</div>'.$create_form;
+                if (!$username || strlen($username) < 2)
+                    echo '<div>Username must be at least 2 characters.</div>';
                 else if (!$email || empty($email))
-                    echo '<div>Email is missing.</div>'.$create_form;
+                    echo '<div>Email is missing.</div>';
                 else if (!$_POST['pw'] || strlen($_POST['pw']) < 8)
-                    echo '<div>Password must be at least 8 characters.</div>'.$create_form;
+                    echo '<div>Password must be at least 8 characters.</div>';
                 else {
                     $pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 
@@ -56,19 +55,18 @@
                                         Username or email already exists.
                                     </div>
                                     <div>
-                                        <a href="forgot_password.php" title="Forgot password" alt="Forgot password">Forgot password</a>
-                                    </div>'.$create_form;
+                                        <a href="forgot_password.php" title="Forgot password"
+                                            alt="Forgot password">Forgot password</a>
+                                    </div>';
                         else
                             echo '<div>Something went wrong.<br />
-                                        '.$e->getMessage().'</div>'.$create_form;
+                                        '.$e->getMessage().'</div>';
                     }
                 }
             }
-            else {
-                echo $create_form;    
-            }
-
+            echo $register_form;
         ?>
+        <script src="js/validate.js"></script>
     </div>
     <?php 
 		require_once 'components/mobile_footer.php';

@@ -19,11 +19,12 @@
 
     <div class="main-container">
         <?php
-            $forgot_password_form = '<h1>send new password</h1>
+            $forgot_password_form = '<h1>forgot</h1>
+                                    <h2>send new password</h2>
                                     <div class="form-container">
                                         <form method="post">
                                             Email<br />
-                                            <input type="mail" name="email" /><br />
+                                            <input type="email" name="email" /><br />
                                             <input type= "submit" value="OK" />
                                         </form>
                                     </div>';

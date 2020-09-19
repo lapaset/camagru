@@ -140,15 +140,6 @@ input[type=image] {
 	margin: 0rem;
 }
 
-.comment-form-container input[type=text] {
-	width: 88%;
-}
-
-.comment-form-container input[type=submit] {
-	width: 10%;
-	float: right;
-}
-
 .trash-icon {
 	height: 2em;
 	width: auto;
@@ -212,9 +203,6 @@ input[type=image] {
 }
 
 @media screen and (max-height: 500px) {
-	body {
-		font-size: 4vh;
-	}
 
 	#register {
 		text-decoration: underline;

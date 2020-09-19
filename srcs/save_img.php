@@ -3,8 +3,6 @@
     if (!$_SESSION['user'])
         header("Location: ../index.php");
 
-    //todo: check the sessions at every page
-
     function decode_img($data) {
         $data = str_replace('data:image/png;base64,', '', $data);
         $data = str_replace(' ', '+', $data);
@@ -38,11 +36,6 @@
             echo 'Adding the photo failed: '.$e->getMessage();
         }
     }
-
-    
-//todo: why semicolon at image description leads to copying failed
-//editor has the post thing
-//OR save_img returns you to editor
 
     if ($_POST) {
         $img = imagecreatefromstring(decode_img($_POST['image-data']));

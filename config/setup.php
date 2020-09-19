@@ -11,7 +11,7 @@
             id VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
             user_id INT(4) UNSIGNED NOT NULL,
             user_name VARCHAR(30) NOT NULL,
-            description VARCHAR(60) NOT NULL,
+            description VARCHAR(60) NOT NULL CHARSET utf8,
             date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );';
 
@@ -49,7 +49,8 @@
             email VARCHAR(50) NOT NULL UNIQUE,
             pw VARCHAR(600) NOT NULL,
             active ENUM('verify', 'active') DEFAULT 'verify' NOT NULL,
-            verify_hash VARCHAR(50) NOT NULL
+            verify_hash VARCHAR(50) NOT NULL,
+            notifications ENUM('on', 'off') DEFAULT 'on' NOT NULL
         );";
 
         //default user ulla with pw salainensana

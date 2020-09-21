@@ -19,23 +19,15 @@
 
     <div class="main-container">
         <?php
-            $forgot_password_form = '<h1>forgot</h1>
-                                    <h2>send new password</h2>
-                                    <div class="form-container">
-                                        <form method="post">
-                                            <label>Email</label><br />
-                                            <input type="email" name="email" /><br />
-                                            <input type= "submit" value="OK" />
-                                        </form>
-                                    </div>';
-
+            require_once 'components/forgot_password_form.php';
 
             if ($_POST['email'] && !empty($_POST['email'])) {
                 require_once '../config/database.php';
                 try {
                     $verify_hash = uniqid();
                     $email = $_POST['email'];
-                    $user = $pdo->prepare("UPDATE users SET verify_hash = :verify_hash WHERE email = :email;");
+                    $user = $pdo->prepare("UPDATE users SET verify_hash = :verify_hash
+                                WHERE email = :email;");
                     $user->execute(array(':email' => $email,
                                         ':verify_hash' => $verify_hash));
                     if ($user->rowCount() !== 0) {

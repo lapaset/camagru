@@ -25,10 +25,13 @@
                 date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
             );';
 
-            $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, user_name, description)
+            $img_to_add = $pdo->prepare('INSERT IGNORE
+                            INTO photos(id, user_id, user_name, description)
                 VALUES (:id, :user_id, :user_name, :description);');
-            $img_to_add->execute(array(':id' => $filename, ':user_id' => $_SESSION['user_id'],
-                                        ':user_name' => $_SESSION['user'], ':description' => $description));
+            $img_to_add->execute(array(':id' => $filename,
+                                        ':user_id' => $_SESSION['user_id'],
+                                        ':user_name' => $_SESSION['user'],
+                                        ':description' => $description));
             $pdo->query($table_likes);
             $pdo->query($table_comments);
 
@@ -58,4 +61,3 @@
     else
         echo 'no image';
 ?>
-

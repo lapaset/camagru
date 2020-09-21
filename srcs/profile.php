@@ -5,7 +5,7 @@
 
     $footer_left = "frontpage";
 	$footer_mid = "";
-	$footer_right = "";
+	$footer_right = "logout";
 	$path_to_icons = "../";
 	$path_to_srcs = "";
 	$msg = "";
@@ -91,9 +91,8 @@
 
 		<?php
 			require_once 'components/profile_update_form.php';
-
 			require_once 'components/user_photo_grid.php';
 			echo '</div>';	
-
+			require_once 'components/footer.php';
 			require_once 'components/mobile_footer.php';
 		?>

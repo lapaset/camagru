@@ -25,7 +25,8 @@
             function authorized() {
                 require_once '../config/database.php';
 
-                $res = $pdo->prepare("SELECT id, active, pw FROM users WHERE login_name = :username;");
+                $res = $pdo->prepare("SELECT id, active, pw FROM users 
+                            WHERE login_name = :username;");
                 $res->execute(array(':username' => $_POST['login']));
 
                 if (!$user = $res->fetch(PDO::FETCH_ASSOC))

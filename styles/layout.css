@@ -70,7 +70,7 @@ h2 {
 	right: 0vh;
 	bottom: 0vh;
 	z-index: 1;
-	padding: 1rem 0rem;
+	padding: 0.8rem 0rem;
 	text-align: center;
 	display: none;
 	width: 100%;
@@ -200,6 +200,11 @@ input[type=image] {
 		grid-template-columns: auto auto;
 	}
 
+	@media screen and (max-height: 500px) {
+		.mobile-footer {
+			padding: 0.1rem 0rem;
+		}
+	}
 }
 
 @media screen and (max-height: 500px) {

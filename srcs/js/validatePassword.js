@@ -1,22 +1,5 @@
-var username = document.getElementById('username');
 var password = document.getElementById('pw')
 var confirm_password = document.getElementById('confirm_pw');
-
-function validateUsername() {
-	var re = /^\w+$/;
-
-	if (username.value.length < 2)
-		username.setCustomValidity('min length 2');
-
-	else if (username.value.length > 30)
-		username.setCustomValidity('max length 30');
-
-	else if (!re.test(username.value))
-		username.setCustomValidity('must contain only letters, digits and _');
-
-	else
-		username.setCustomValidity('');
-}
 
 function validatePassword() {
 
@@ -47,6 +30,5 @@ function validatePassword() {
 
 }
 
-username.onchange = validateUsername;
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;

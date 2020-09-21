@@ -18,5 +18,6 @@
 
 		<input type="submit" name="submit" value="update" />
 	</form>
-	<script src="js/validate.js"></script>
+	<script src="js/validatePassword.js"></script>
+	<script src="js/validateUsername.js"></script>
 </div>

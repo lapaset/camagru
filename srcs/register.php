@@ -66,7 +66,8 @@
             }
             echo $register_form;
         ?>
-        <script src="js/validate.js"></script>
+        <script src="js/validateUsername.js"></script>
+        <script src="js/validatePassword.js"></script>
     </div>
     <?php 
 		require_once 'components/mobile_footer.php';

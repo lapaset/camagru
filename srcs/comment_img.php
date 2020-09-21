@@ -2,7 +2,6 @@
 	session_start();
 	
 	if ($_SESSION['user'] && isset($_POST) && $_POST['photo_id'] && $_POST['photo_owner'] && $_POST['comment']) {
-		print_r($_POST);
 		
 		require_once '../config/database.php';
 		$send_comment = $pdo->prepare('INSERT INTO '.$_POST['photo_id'].'_comments(user_id, user_name, comment)

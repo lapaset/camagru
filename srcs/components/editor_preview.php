@@ -1,5 +1,5 @@
 <div class="preview-container">
-	<video id="video-element" autoplay="true" poster="/camagru/images/loading.png">
+	<video id="video-element" autoplay="true" poster="../icons/loading.png">
 		Your browser does not support the video tag.
 	</video>
 	<?php

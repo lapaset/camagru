@@ -11,7 +11,7 @@
             id VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
             user_id INT(4) UNSIGNED NOT NULL,
             user_name VARCHAR(30) NOT NULL,
-            description VARCHAR(60) NOT NULL CHARSET utf8,
+            description VARCHAR(160) NOT NULL,
             date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );';
 
@@ -28,7 +28,7 @@
                 $table_comments = 'CREATE TABLE IF NOT EXISTS '.$id.'_comments (
                     user_id INT(4) UNSIGNED NOT NULL,
                     user_name VARCHAR(30) NOT NULL,
-                    comment VARCHAR(60) NOT NULL,
+                    comment VARCHAR(160) NOT NULL,
                     date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
                 );';
 

@@ -23,7 +23,7 @@
                                     <h2>send new password</h2>
                                     <div class="form-container">
                                         <form method="post">
-                                            Email<br />
+                                            <label>Email</label><br />
                                             <input type="email" name="email" /><br />
                                             <input type= "submit" value="OK" />
                                         </form>

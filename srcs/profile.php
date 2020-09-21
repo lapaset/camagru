@@ -18,7 +18,7 @@
 		$update_query = 'UPDATE users SET ';
 		$update_array = [];
 
-		if ($username && strlen($username) > 3) {
+		if ($username) {
 			$update_query = $update_query.'login_name=:username, ';
 			$update_array[':username'] = $username; 
 		}
@@ -28,7 +28,7 @@
 			$update_array[':email'] = $email;
 		}
 
-		if ($_POST['pw'] && strlen($_POST['pw']) > 7) {
+		if ($_POST['pw']) {
 			$pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 			$update_query = $update_query.'pw=:pw, ';
 			$update_array[':pw'] = $pw; 
@@ -42,9 +42,9 @@
 			$update = $pdo->prepare($update_query);
 			$update->execute($update_array);
 			
-			if ($update_array[':username'])
-				$_SESSION['user'] = $update_array[':username'];
-			$msg = '<div>Updated</div>';
+			if ($username)
+				$_SESSION['user'] = $username;
+			$msg = '<div>Profile updated</div>';
 			
 		} catch (PDOException $e) {
 			if (strpos($e->getMessage(), 'Duplicate entry'))

@@ -44,8 +44,8 @@
 				<input type="hidden" id="filters" name="filters" />
 				<input type="hidden" id="image-data" name="image-data" />
 				<input type="text" id="description" name="description"
-					value="" placeholder="Description" />
-				<input type="button" onclick="save()" value="Save" />
+					value="" placeholder="description" maxlength="160" />
+				<input type="button" onclick="save()" value="save" />
 			</form>
 		</div>
 		

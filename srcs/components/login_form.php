@@ -2,9 +2,9 @@
     $login_form = '<h1>login</h1>
                     <div class="form-container">
                         <form method="post">
-                            Username<br />
+                            <label>Username</label><br />
                             <input type="text" name="login" /><br />
-                            Password<br />
+                            <label>Password</label><br />
                             <input type="password" name="pw" /><br />
                             <input type="submit" value="OK" />
                         </form>

@@ -7,18 +7,19 @@
 
 		if (file_exists('imgs/'.$row['id'].'.png')) {
 
+			$likes = $pdo->query('SELECT count(*) FROM '.$row['id'].'_likes')->fetchColumn();
+			$description = htmlspecialchars($row['description']);
+
 			if ($_SESSION['user_id'])
 				$liked = $pdo->query('SELECT * FROM '.$row['id'].'_likes
 					WHERE user_id = '.$_SESSION['user_id'].' LIMIT 1;')->rowCount();
-
-			$likes = $pdo->query('SELECT count(*) FROM '.$row['id'].'_likes')->fetchColumn(); 
 
 			echo 	'<div class="photo-container">
 						<img
 							class="stream-img"
 							src="imgs/'.$row['id'].'.png"
-							alt="'.$row['description'].'"
-							title="'.$row['description'].'" /> <br />';
+							alt="'.$description.'"
+							title="'.$description.'" /> <br />';
 			
 
 			if (!$_SESSION['user_id'] || $liked === 1)
@@ -32,7 +33,7 @@
 								alt="not liked" title="not liked" /> '.$likes.' likes</br>
 						</form>';
 
-			echo 		'<b>'.$row['user_name'].'</b> '.$row['description'];
+			echo 		'<b>'.$row['user_name'].'</b> '.$description;
 
 			require 'srcs/components/comments.php';
 

@@ -28,37 +28,26 @@
 
 	<?php
 		if (!$_SESSION['user'])
-			echo '<div class="header">
-					<a id="register" href="srcs/register.php" alt="register"
-						title="register">register</a>
-				</div>';
+			require_once 'srcs/components/register_header.php';
 	?>
 
 	<div class="main-container">
 		<h1>camagru</h1>
 
-		<?php require_once 'srcs/components/img_stream.php'; ?>
+		<?php
+			require_once 'srcs/components/img_stream.php';
+			require_once 'srcs/components/index_signature_footer.php';
+		?>
 
-		<div style="text-align: right; padding: 1rem; border-top: 1px solid black" >
-			Thank you for your visit!<br />
-			<a href="http://github.com/lapaset" title="my github profile"
-				alt="my github profile" >Liisa Lahti</a> 2020<br/>
-		</div>
+		<script src="srcs/js/scrollPosition.js"></script>
 	</div>
 
 	<?php
 		if ($_SESSION['user'])
-			echo '	<div class="left-bottom-corner">
-						<a href="srcs/editor.php" alt="add photo" title="add photo">
-							<div class="circle-container">
-								<img id="add" src="icons/add.png" title="add photo"
-									alt="add photo" />
-							</div>
-						</a>
-					</div>';
+			require_once 'srcs/components/add_photo_button.php';
 	?>
 
-	<script src="srcs/js/scrollPosition.js"></script>
+	
 
 	<?php 
 		require_once 'srcs/components/footer.php';

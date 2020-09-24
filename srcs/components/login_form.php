@@ -1,6 +1,5 @@
 <?php
-    $login_form = '<h1>login</h1>
-                    <div class="form-container">
+    $login_form = '<div class="form-container">
                         <form method="post">
                             <label>Username</label><br />
                             <input type="text" name="login" /><br />

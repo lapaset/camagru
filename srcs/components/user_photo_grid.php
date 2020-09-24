@@ -1,7 +1,6 @@
 <h2>your photos</h2>
 <div class="grid-container">
 	<?php
-		//todo confirm delete
 		require_once '../config/database.php';
 
 		foreach ($pdo->query('SELECT id, description FROM photos WHERE user_id='.$_SESSION['user_id'].' ORDER BY date DESC;') as $row) {
@@ -16,6 +15,7 @@
 							<div class="delete-img-form-container">
 								<form class="delete-img-form" action="delete_img.php" method="post">
 									<input type="hidden" name="photo_id" value="'.$row['id'].'" />
+									<input type="hidden" name="location" value="'.$location.'" />
 									<input class="trash-icon" type="image" src="../icons/delete.png"
 										alt="delete photo" title="delete photo" />
 								</form>

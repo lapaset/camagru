@@ -1,7 +1,6 @@
 <?php
     require_once 'database.php';
-    
-    //todo: setup time zone!
+    date_default_timezone_set('Europe/Helsinki');
 
     function init_photos($pdo) {
         $dir = '../imgs';

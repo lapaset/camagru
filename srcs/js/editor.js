@@ -6,13 +6,18 @@ var checkboxes = document.querySelectorAll('input[type="checkbox"]');
 var filters = [];
 var uploadButton = document.querySelector('#upload-icon');
 var imageLoader = document.getElementById('image-loader');
-var canvas = document.querySelector('#canvas');
+var canvas = document.querySelector('#img-container');
 var canvas2 = document.querySelector('#preview-canvas');
 var context = canvas.getContext('2d');
-var w, h, ratio;
+var w = 600;
+var h = 450;
+canvas.width = w;
+canvas.height = h;
+video.width = w;
+video.height = h;
 
 if (navigator.mediaDevices.getUserMedia) {
-	navigator.mediaDevices.getUserMedia({ video: { width: 600, height: 400 } })
+	navigator.mediaDevices.getUserMedia({ video: { width: w, height: h } })
 		.then(function (stream) {
 			video.srcObject = stream;
 		})
@@ -24,14 +29,13 @@ if (navigator.mediaDevices.getUserMedia) {
 imageLoader.addEventListener('change', uploadImage, false);
 
 video.addEventListener('loadedmetadata', function() {
-	ratio = video.videoWidth / video.videoHeight;
-	w = video.videoWidth;
-	h = parseInt(w / ratio, 10);
-	canvas.width = w;
-	canvas.height = h;
+	activateCheckboxes();
+}, false );
+
+function activateCheckboxes() {
 	for (i = 0; i < checkboxes.length; i++)
 		checkboxes[i].disabled = false;
-}, false );
+}
 
 function showPreview() {
 	var context2 = canvas2.getContext('2d');
@@ -50,7 +54,6 @@ function uploadImage(event) {
 	reader.onload = function(e) {
 		var img = new Image();
 		img.onload = function() {
-			console.log('width:', img.width, 'height:', img.height);
 			var hRatio = canvas.width / img.width;
 			var vRatio = canvas.height / img.height;
 			var ratio  = Math.min(hRatio, vRatio);
@@ -64,6 +67,7 @@ function uploadImage(event) {
 		img.src = e.target.result;
 	}
 	reader.readAsDataURL(event.target.files[0]);
+	activateCheckboxes();
 }
 
 function snap() {

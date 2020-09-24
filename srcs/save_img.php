@@ -2,7 +2,7 @@
     session_start();
     date_default_timezone_set('Europe/Helsinki');
     
-    if (!$_SESSION['user'])
+    if (!$_SESSION['user_id'])
         header("Location: ../index.php");
 
     function decode_img($data) {
@@ -27,13 +27,9 @@
                 date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
             );';
 
-            $img_to_add = $pdo->prepare('INSERT IGNORE
-                            INTO photos(id, user_id, user_name, description)
-                VALUES (:id, :user_id, :user_name, :description);');
-            $img_to_add->execute(array(':id' => $filename,
-                                        ':user_id' => $_SESSION['user_id'],
-                                        ':user_name' => $_SESSION['user'],
-                                        ':description' => $description));
+            require_once 'controls/photos.php';
+            add_photo($pdo, $filename, $_SESSION['user_id'], $description);
+
             $pdo->query($table_likes);
             $pdo->query($table_comments);
 

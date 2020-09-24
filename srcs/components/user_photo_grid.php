@@ -2,8 +2,11 @@
 <div class="grid-container">
 	<?php
 		require_once '../config/database.php';
+		require_once 'controls/photos.php';
 
-		foreach ($pdo->query('SELECT id, description FROM photos WHERE user_id='.$_SESSION['user_id'].' ORDER BY date DESC;') as $row) {
+		$photos = get_user_photos($pdo, $_SESSION['user_id']);
+
+		foreach ($photos as $row) {
 			$description = htmlspecialchars($row['description']);
 
 			if (file_exists('../imgs/'.$row['id'].'.png'))
@@ -23,7 +26,7 @@
 
 						</div>';
 			else
-				$pdo->query('DELETE FROM photos WHERE id="'.$row['id'].'";');
+				delete_photo($pdo, $row['id']);
 		}
 	?>
 </div>

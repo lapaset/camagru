@@ -30,10 +30,8 @@
                     date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
                 );';
 
-                $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, description)
-                                VALUES (:id, :user_id, :description);');
-                $img_to_add->execute(array(':id' => $id, ':user_id' => "1",
-                                            ':description' => "The only limitation is your imagination"));
+                require_once '../srcs/controls/photos.php';
+                add_photo($pdo, $id, 1, 'The only limitation is your imagination');
                 $pdo->query($table_likes);
                 $pdo->query($table_comments);
             }

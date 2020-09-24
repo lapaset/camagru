@@ -1,11 +1,8 @@
 <?php
 	require_once 'config/database.php';
+	require_once 'srcs/controls/photos.php';
 
-	$photos = $pdo->query('SELECT photos.id, description, login_name, email, notifications
-							FROM photos
-							INNER JOIN users
-							ON photos.user_id = users.id
-							ORDER BY date DESC;');
+	$photos = get_all_photos($pdo);
 
 	foreach ($photos as $row) {
 
@@ -44,7 +41,7 @@
 			echo 	'</div>';
 			
 		} else
-			$pdo->query('DELETE FROM photos WHERE id="'.$row['id'].'";');
+			delete_photo($pdo, $row['id']);
 	}
 
 ?>

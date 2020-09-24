@@ -19,7 +19,7 @@
 
 	<div class="main-container">
 		<h1>Recover password</h1>
-	
+		
 		<?php
 			require_once '../config/database.php';
 
@@ -30,13 +30,11 @@
 					$update = $pdo->prepare("UPDATE users SET pw = :pw WHERE id = :id;");
 					$update->execute(array(':pw' => $pw,
 											':id' => $_POST['id']));
-					echo 	'<div>
-								Password updated<br />
-								Please login
-							</div>';
+					echo 	'<div class="msg">Password updated,
+								please <a href="login.php" title="login" alt="login">login</a></div>';
 
 				} catch (PDOException $e) {
-					echo 	'<div>Something went wrong.<br />
+					echo 	'<div class="msg">Something went wrong.<br />
 								'.$e->getMessage().'</div>';
 				}
 		
@@ -49,7 +47,7 @@
 										':verify_hash' => $_GET['hash']));
 					if ($res = $user->fetch(PDO::FETCH_ASSOC)) {
 						if ($res['active'] !== 'active')
-							echo '<div>Account has not been activated</div>';
+							echo '<div class="msg">Account has not been activated</div>';
 						else {
 							$id = $res['id'];
 							$update = $pdo->prepare("UPDATE users SET verify_hash = :verify_hash
@@ -70,15 +68,16 @@
 						}
 					}
 					else
-						echo '<div>Invalid approach, the link may be already used</div>';
+						echo '<div class="msg">Invalid approach, the link may be already used</div>';
 				} catch (PDOException $e) {
-					echo '<div>Something went wrong.<br />
+					echo '<div class="msg">Something went wrong.<br />
 								'.$e->getMessage().'</div>';
 				}
 
 			} else
-				echo '<div>Invalid approach, use the link from your email</div>';
+				echo '<div class="msg">Invalid approach, use the link from your email</div>';
 		?>
+		</div>
 	</div>
     <?php 
 		require_once 'components/mobile_footer.php';

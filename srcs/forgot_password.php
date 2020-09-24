@@ -18,6 +18,8 @@
     <?php require_once 'components/frontpage_arrow.php' ?>
 
     <div class="main-container">
+        <h1>forgot</h1>
+		<h2>send new password</h2>
         <?php
             require_once 'components/forgot_password_form.php';
 
@@ -34,12 +36,12 @@
                         require_once 'emails/forgot_password_email.php';
 
                         mail($email, $subject, $message, $headers);
-                        echo '<div>Recovery email sent.</div>';
+                        echo '<div class="msg">Recovery email sent.</div>';
                     } else
-                        echo '<div>Email not found</div>'.$forgot_password_form;
+                        echo '<div class="msg">Email not found</div>'.$forgot_password_form;
 
                 } catch (PDOException $e) {
-                    echo '<div>Something went wrong.<br />'.$e->getMessage().'</div>';
+                    echo '<div class="msg">Something went wrong.<br />'.$e->getMessage().'</div>';
                 }
             } else
                 echo $forgot_password_form;

@@ -18,6 +18,8 @@
 	<?php require_once 'components/frontpage_arrow.php' ?>
 
 	<div class="main-container">
+		<h1>Verify account</h1>
+		<div class="msg">
 		<?php
 
 			if ($_GET['email'] && !empty($_GET['email']) &&
@@ -30,24 +32,25 @@
 										':verify_hash' => $_GET['hash']));
 					if ($res = $user->fetch(PDO::FETCH_ASSOC)) {
 						if ($res['active'] === 'active')
-							echo '<div>Account has already been activated.<br />Please login.</div>';
+							echo 'Account is activated,
+									please <a href="login.php" title="login" alt="login">login</a>';
 						else {
 							$update = $pdo->prepare("UPDATE users SET active = 'active'
 														WHERE id = :id;");
 							$update->execute(array(':id' => $res['id']));
-							echo '<div>Account is now activated.<br />Please login.</div>';
+							echo 'Account is now activated,
+									please <a href="login.php" title="login" alt="login">login</a>';
 						}
 					}
 					else
-						echo '<div>Invalid approach, use the link from your email here</div>';
+						echo 'Invalid approach, use the link from your email';
 				} catch (PDOException $e) {
-					echo '<div>Something went wrong.<br />
-								'.$e->getMessage().'</div>';
+					echo 'Something went wrong.<br />'.$e->getMessage();
 				}
 			} else
-				echo '<div>Invalid approach, use the link from your email</div>';
-
+				echo 'Invalid approach, use the link from your email';
 		?>
+		</div>
 	</div>
     <?php 
 		require_once 'components/mobile_footer.php';

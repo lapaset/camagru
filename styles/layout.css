@@ -171,13 +171,22 @@ input[type=image] {
 	height: auto;
 }
 
+.msg {
+	width: 80%;
+	margin: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding: 2rem 1rem;
+	border: 0.1px solid black;
+
+}
+
 @media screen and (max-width: 600px) {
 	.main-container {
 		width: 100%;
 		height: 90vh;
 		left: 0px;
 		right: 0px;
-		border-radius: 0px;
 	}
 
 	.header {

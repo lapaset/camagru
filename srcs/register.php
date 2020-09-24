@@ -18,6 +18,7 @@
     <?php require_once 'components/frontpage_arrow.php' ?>
 
     <div class="main-container">
+        <h1>register</h1>
         <?php
             require_once 'components/register_form.php';
 
@@ -28,13 +29,8 @@
                 $email = $_POST['email'];
                 $verify_hash = uniqid();
 
-                if (!$username || strlen($username) < 2)
-                    echo '<div>Username must be at least 2 characters.</div>';
-                else if (!$email || empty($email))
-                    echo '<div>Email is missing.</div>';
-                else if (!$_POST['pw'] || strlen($_POST['pw']) < 8)
-                    echo '<div>Password must be at least 8 characters.</div>';
-                else {
+                if ($username && $email && $_POST['pw']) {
+
                     $pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 
                     try {
@@ -47,27 +43,25 @@
 
                         require_once 'emails/verification_email.php';
                         mail($email, $subject, $message, $headers);
-                        echo '<div>Verification message sent, check your email.</div>';
+                        echo '<div class="msg">Verification message sent, check your email.</div>';
                         
                     } catch (PDOException $e) {
                         if (strpos($e->getMessage(), 'Duplicate entry'))
-                            echo    '<div>
-                                        Username or email already exists.
-                                    </div>
-                                    <div>
+                            echo    '<div class="msg">
+                                        Username or email already exists,
                                         <a href="forgot_password.php" title="Forgot password"
-                                            alt="Forgot password">Forgot password</a>
-                                    </div>';
+                                            alt="Forgot password">forgot password</a>?
+                                    </div>'
+                                    .$register_form;
                         else
-                            echo '<div>Something went wrong.<br />
+                            echo '<div class="msg">Something went wrong.<br />
                                         '.$e->getMessage().'</div>';
                     }
                 }
-            }
-            echo $register_form;
+            } else
+                echo $register_form;
         ?>
-        <script src="js/validateUsername.js"></script>
-        <script src="js/validatePassword.js"></script>
+
     </div>
     <?php 
 		require_once 'components/mobile_footer.php';

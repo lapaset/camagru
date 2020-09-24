@@ -19,6 +19,7 @@
     <?php require_once 'components/frontpage_arrow.php' ?>
 
     <div class="main-container">
+        <h1>login</h1>
         <?php
             require_once 'components/login_form.php';
 
@@ -42,7 +43,7 @@
 
             if ($_POST) {
                 if (!authorized())
-                    echo '<div>Invalid username or password</div>'.$login_form;
+                    echo '<div class="msg">Invalid username or password</div>'.$login_form;
                 else 
                     header("Location: ../index.php");
             }

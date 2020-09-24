@@ -9,6 +9,7 @@
 	$path_to_icons = "../";
 	$path_to_srcs = "";
 	$msg = "";
+	$location = "profile";
 
 	require_once '../config/database.php';
 
@@ -44,32 +45,20 @@
 			
 			if ($username)
 				$_SESSION['user'] = $username;
-			$msg = '<div>Profile updated</div>';
+			$msg = 'Profile updated';
 			
 		} catch (PDOException $e) {
 			if (strpos($e->getMessage(), 'Duplicate entry'))
-				$msg =  '<div>
-							Username or email already exists.
-						</div>';
+				$msg =  'Username or email already exists.';
 			else
-				$msg =	'<div>Something went wrong.<br />
-							'.$e->getMessage().'</div>';
+				$msg =	'Something went wrong.<br />
+							'.$e->getMessage();
 		}
 		
 	}
 
 	$profile = $pdo->query('SELECT * FROM users WHERE id='.$_SESSION['user_id'].';');
 	$profile = $profile->fetch(PDO::FETCH_ASSOC);
-
-	function is_on($n) {
-		if ($n === 'on')
-			echo "checked";
-	}
-
-	function is_off($n) {
-		if ($n === 'off')
-			echo "checked";
-	}
 ?>
 
 <!DOCTYPE html>
@@ -84,15 +73,18 @@
 	<?php require_once 'components/frontpage_arrow.php' ?>
 	
     <div class="main-container">
-		<div>
-			<?php echo $msg; ?>
-		</div>
 		<h1>profile</h1>
 
+		
 		<?php
+			if ($msg !== '') 
+				echo '<div class="msg">'.$msg.'</div>';
 			require_once 'components/profile_update_form.php';
 			require_once 'components/user_photo_grid.php';
-			echo '</div>';	
-			require_once 'components/footer.php';
-			require_once 'components/mobile_footer.php';
 		?>
+	</div>
+
+	<?php
+		require_once 'components/footer.php';
+		require_once 'components/mobile_footer.php';
+	?>

@@ -16,6 +16,7 @@
 							WHERE login_name="'.$_POST['photo_owner'].'"
 							AND notifications="on";');
 		if ($owner = $photo_owner->fetch(PDO::FETCH_ASSOC)) {
+			$email = $owner['email'];
 			require_once 'emails/comment_email.php';
 			mail($email, $subject, $message, $headers);
 		}		

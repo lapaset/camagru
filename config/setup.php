@@ -9,7 +9,6 @@
         $table_photos = 'CREATE TABLE IF NOT EXISTS photos (
             id VARCHAR(30) NOT NULL UNIQUE PRIMARY KEY,
             user_id INT(4) UNSIGNED NOT NULL,
-            user_name VARCHAR(30) NOT NULL,
             description VARCHAR(160) NOT NULL,
             date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         );';
@@ -31,10 +30,10 @@
                     date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
                 );';
 
-                $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, user_name, description)
-                                VALUES (:id, :user_id, :user_name, :description);');
+                $img_to_add = $pdo->prepare('INSERT IGNORE INTO photos(id, user_id, description)
+                                VALUES (:id, :user_id, :description);');
                 $img_to_add->execute(array(':id' => $id, ':user_id' => "1",
-                                            ':user_name' => "ulla", ':description' => "The only limitation is your imagination"));
+                                            ':description' => "The only limitation is your imagination"));
                 $pdo->query($table_likes);
                 $pdo->query($table_comments);
             }
@@ -63,12 +62,7 @@
         $pdo->query($def_user);
         $pdo->query($second_user);
 
-        $photos_exist = $pdo->query("SELECT * FROM information_schema.tables
-                                        WHERE table_schema = 'llahti' 
-                                        AND table_name = 'photos' LIMIT 1;");
-
-        if ($photos_exist->rowCount() < 1)
-            init_photos($pdo);
+        init_photos($pdo);
 
         echo "Database setup succesfull";
 

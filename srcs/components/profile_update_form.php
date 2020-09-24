@@ -11,9 +11,11 @@
 		<input type="password" id="confirm_pw" name="confirm_pw" value="" placeholder="new password again" />
 
 		<label>Email notifications:</label><br />
-		<input type="radio" id="on" name="notifications" value="on" <?php is_on($profile['notifications'])?>/>
+		<input type="radio" id="on" name="notifications" value="on" 
+			<?php if ($profile['notifications'] === 'on') echo 'checked' ?>/>
 		<label for="on">On</label>
-		<input type="radio" id="off" name="notifications" value="off" <?php is_off($profile['notifications'])?>/>
+		<input type="radio" id="off" name="notifications" value="off"
+			<?php if ($profile['notifications'] === 'off') echo 'checked'?>/>
 		<label for="off">Off</label><br />
 
 		<input type="submit" name="submit" value="update" />

@@ -1,5 +1,7 @@
 <?php
     session_start();
+    date_default_timezone_set('Europe/Helsinki');
+    
     if (!$_SESSION['user'])
         header("Location: ../index.php");
 

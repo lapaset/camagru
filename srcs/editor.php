@@ -8,6 +8,7 @@
 	$footer_right = "logout";
 	$path_to_icons = "../";
 	$path_to_srcs = "";
+	$location = "editor";
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
 			require_once 'components/user_photo_grid.php';
 		?>
 
-		<canvas id="canvas"></canvas>
+		<canvas id="img-container"></canvas>
 
 	</div>
 

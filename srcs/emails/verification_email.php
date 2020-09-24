@@ -4,7 +4,7 @@
 
         Thank you for signing up!
         Click this link to activate your account:
-        http://localhost:8080/camagru/srcs/verify_new_user.php?email='.$email.'&hash='.$verify_hash.'
+        http://localhost:8080/camagru/srcs/verify_user.php?email='.$email.'&hash='.$verify_hash.'
         
         ';
 

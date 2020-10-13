@@ -24,7 +24,7 @@
                 user_id INT(4) UNSIGNED NOT NULL,
                 user_name VARCHAR(30) NOT NULL,
                 comment VARCHAR(160) NOT NULL,
-                date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
             );';
 
             require_once 'queries/photos.php';

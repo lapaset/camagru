@@ -22,53 +22,47 @@
 		
 		<?php
 			require_once '../config/database.php';
+			require_once 'queries/users.php';
 
 			if ($_POST['pw'] && $_POST['id']) {
 				$pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 
 				try {
-					$update = $pdo->prepare("UPDATE users SET pw = :pw WHERE id = :id;");
-					$update->execute(array(':pw' => $pw,
-											':id' => $_POST['id']));
-					echo 	'<div class="msg">Password updated,
-								please <a href="login.php" title="login" alt="login">login</a></div>';
+					update_pw($pdo, $pw, $_POST['id']);
+					echo 	'<div class="msg">Password updated, please
+								<a href="login.php" title="login" alt="login">login</a></div>';
 
 				} catch (PDOException $e) {
 					echo 	'<div class="msg">Something went wrong.<br />
 								'.$e->getMessage().'</div>';
 				}
 		
-			} else if ($_GET['email'] && !empty($_GET['email']) &&
-				$_GET['hash'] && !empty($_GET['hash'])) {
+			} else if ($_GET['email'] && !empty($_GET['email']) && $_GET['hash'] && !empty($_GET['hash'])) {
+				
 				try {
-					$user = $pdo->prepare("SELECT id, active FROM users WHERE email = :email
-											AND verify_hash = :verify_hash;");
-					$user->execute(array(':email' => $_GET['email'],
-										':verify_hash' => $_GET['hash']));
-					if ($res = $user->fetch(PDO::FETCH_ASSOC)) {
-						if ($res['active'] !== 'active')
+
+					if ($user = get_user_by_email($pdo, $_GET['email'], $_GET['hash'])) {
+
+						if ($user['active'] !== 'active')
 							echo '<div class="msg">Account has not been activated</div>';
+
 						else {
-							$id = $res['id'];
-							$update = $pdo->prepare("UPDATE users SET verify_hash = :verify_hash
-														WHERE id = :id;");
-							$update->execute(array(':id' => $id,
-													':verify_hash' => uniqid()));
+							update_verify_hash($pdo, $user['id'], uniqid());
 
 							echo 	'<div class="form-container">
 										<form method="post">
 											<label>New password:</label>
 											<input id="pw" type="password" name="pw" />
 											<input id="confirm_pw" type="password" name="confirm_pw" value="" placeholder="repeat password" />
-											<input type="hidden" name="id" value="'.$id.'" />
+											<input type="hidden" name="id" value="'.$user['id'].'" />
 											<input type="submit" value="OK" />
 										</form>
 									</div>
 									<script src="js/validatePassword.js"></script>';
 						}
-					}
-					else
+					} else
 						echo '<div class="msg">Invalid approach, the link may be already used</div>';
+				
 				} catch (PDOException $e) {
 					echo '<div class="msg">Something went wrong.<br />
 								'.$e->getMessage().'</div>';

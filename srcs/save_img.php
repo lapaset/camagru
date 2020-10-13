@@ -27,7 +27,7 @@
                 date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
             );';
 
-            require_once 'controls/photos.php';
+            require_once 'queries/photos.php';
             add_photo($pdo, $filename, $_SESSION['user_id'], $description);
 
             $pdo->query($table_likes);

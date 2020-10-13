@@ -35,7 +35,7 @@
 		<h1>camagru</h1>
 
 		<?php
-			require_once 'srcs/components/img_stream.php';
+			require_once 'srcs/img_stream.php';
 			require_once 'srcs/components/index_signature_footer.php';
 		?>
 

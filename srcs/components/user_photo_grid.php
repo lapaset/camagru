@@ -2,7 +2,7 @@
 <div class="grid-container">
 	<?php
 		require_once '../config/database.php';
-		require_once 'controls/photos.php';
+		require_once 'queries/photos.php';
 
 		$photos = get_user_photos($pdo, $_SESSION['user_id']);
 

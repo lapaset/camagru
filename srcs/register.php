@@ -34,12 +34,8 @@
                     $pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
 
                     try {
-                        $user_to_add = $pdo->prepare('INSERT INTO users(login_name, email, pw, verify_hash)
-                            VALUES (:username, :email, :pw, :verify_hash);');
-                        $user_to_add->execute(array(':username' => $username,
-                                                    ':email' => $email,
-                                                    ':pw' => $pw,
-                                                    ':verify_hash' => $verify_hash));
+                        require_once 'queries/users.php';
+                        add_user($pdo, $username, $email, $pw, $verify_hash);
 
                         require_once 'emails/verification_email.php';
                         mail($email, $subject, $message, $headers);

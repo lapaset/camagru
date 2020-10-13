@@ -3,9 +3,10 @@
 
 	if ($_SESSION['user'] && $_POST && $_POST['photo_id']) {
 		require_once '../config/database.php';
+		require_once 'queries/photos.php';
 
 		try {
-			$pdo->query('DELETE FROM photos WHERE id="'.$_POST['photo_id'].'";');
+			delete_photo($pdo, $_POST['photo_id']);
 			$pdo->query('DROP TABLE '.$_POST['photo_id'].'_likes;');
 			$pdo->query('DROP TABLE '.$_POST['photo_id'].'_comments;');	
 		} catch (PDOException $e) {

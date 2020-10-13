@@ -25,12 +25,9 @@
 
             function authorized() {
                 require_once '../config/database.php';
+                require_once 'queries/users.php';
 
-                $res = $pdo->prepare("SELECT id, active, pw FROM users 
-                            WHERE login_name = :username;");
-                $res->execute(array(':username' => $_POST['login']));
-
-                if (!$user = $res->fetch(PDO::FETCH_ASSOC))
+                if (!$user = get_user($pdo, $_POST['login']))
                     return FALSE;
 
                 if ($user['active'] !== 'active' || !password_verify($_POST['pw'], $user['pw']))

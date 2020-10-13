@@ -1,6 +1,6 @@
 <?php
 	require_once 'config/database.php';
-	require_once 'srcs/controls/photos.php';
+	require_once 'srcs/queries/photos.php';
 
 	$photos = get_all_photos($pdo);
 

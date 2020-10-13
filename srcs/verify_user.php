@@ -22,31 +22,26 @@
 		<div class="msg">
 		<?php
 
-			if ($_GET['email'] && !empty($_GET['email']) &&
-				$_GET['hash'] && !empty($_GET['hash'])) {
+			if ($_GET['email'] && !empty($_GET['email']) && $_GET['hash'] && !empty($_GET['hash'])) {
 				require_once '../config/database.php';
+				require_once 'queries/users.php';
+
 				try {
-					$user = $pdo->prepare("SELECT id, active FROM users WHERE email = :email
-											AND verify_hash = :verify_hash;");
-					$user->execute(array(':email' => $_GET['email'],
-										':verify_hash' => $_GET['hash']));
-					if ($res = $user->fetch(PDO::FETCH_ASSOC)) {
-						if ($res['active'] === 'active')
-							echo 'Account is activated,
+					if ($user = get_user_by_email($pdo, $_GET['email'], $_GET['hash'])) {
+
+						if ($user['active'] !== 'active')
+							activate_user($pdo, $user['id']);
+
+						echo 'Account is activated,
 									please <a href="login.php" title="login" alt="login">login</a>';
-						else {
-							$update = $pdo->prepare("UPDATE users SET active = 'active'
-														WHERE id = :id;");
-							$update->execute(array(':id' => $res['id']));
-							echo 'Account is now activated,
-									please <a href="login.php" title="login" alt="login">login</a>';
-						}
 					}
 					else
 						echo 'Invalid approach, use the link from your email';
+
 				} catch (PDOException $e) {
 					echo 'Something went wrong.<br />'.$e->getMessage();
 				}
+
 			} else
 				echo 'Invalid approach, use the link from your email';
 		?>

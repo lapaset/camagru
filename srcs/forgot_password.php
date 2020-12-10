@@ -35,8 +35,7 @@
 
                     if ($user->rowCount() !== 0) {
                         require_once 'emails/forgot_password_email.php';
-
-                        mail($email, $subject, $message, $headers);
+						require_once 'send_email.php';
                         echo '<div class="msg">Recovery email sent.</div>';
                     } else
                         echo '<div class="msg">Email not found</div>'.$forgot_password_form;

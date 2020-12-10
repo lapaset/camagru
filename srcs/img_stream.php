@@ -23,14 +23,18 @@
 					WHERE user_id = '.$_SESSION['user_id'].' LIMIT 1;')->rowCount();
 
 			if (!$_SESSION['user_id'] || $liked === 1)
-				echo 	'<img class="like-icon" src="icons/like.png"
-							alt="not liked" title="not liked" /> '.$likes.' likes</br>';
+				echo 	'<button class="favorite-button" disabled>
+							<i class="material-icons icon-pink md-24">favorite</i>
+							<span class="favorite-button-text">'.$likes.'</span>
+						</button><br />';
 			
 			else
 				echo 	'<form class="like-img-form" action="srcs/like_img.php" method="post">
 							<input type="hidden" name="photo_id" value="'.$row['id'].'" />
-							<input type="image" src="icons/like_outline.png"
-								alt="not liked" title="not liked" /> '.$likes.' likes</br>
+							<button class="favorite-button" type="submit">
+								<i class="material-icons icon-white md-24">favorite_outline</i>
+								<span class="favorite-button-text">'.$likes.'</span>
+							</button>
 						</form>';
 
 			echo 		'<b>'.$row['login_name'].'</b> '.$description;

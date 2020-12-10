@@ -19,8 +19,9 @@
 								<form class="delete-img-form" action="delete_img.php" method="post">
 									<input type="hidden" name="photo_id" value="'.$row['id'].'" />
 									<input type="hidden" name="location" value="'.$location.'" />
-									<input class="trash-icon" type="image" src="../icons/delete.png"
-										alt="delete photo" title="delete photo" />
+									<button class="trash-button" type="submit">
+										<i class="material-icons icon-white md-24">delete</i>
+									</button>
 								</form>
 							</div>
 

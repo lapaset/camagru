@@ -1,8 +1,8 @@
 :root {
-	--body-bg: #600473;
-	--footer-bg: #fa625f;
-	--main-bg: #fbf579;
-	--highlight1: #005995;
+	--body-bg: black;
+	--footer-bg: white;
+	--main-bg: black;
+	--highlight1: pink;
 	--highlight2: #00a0a0;
 }
 
@@ -11,7 +11,41 @@
 }
 
 body {
+	color: white;
 	background: var(--body-bg);
+}
+
+a {
+	color: orange;
+}
+
+.icon-white {
+	color: white;
+}
+
+.icon-white:hover {
+	color: pink;
+}
+
+.icon-pink {
+	color: pink;
+}
+
+.favorite-button {
+	display: inline-flex;
+	align-items: center;
+	background: var(--main-bg);
+	border: 0px;
+	color: white;
+}
+
+.favorite-button-text {
+	font-size: 1rem;
+	padding-left: 0.5rem;
+}
+
+.material-icons.md-36 { 
+	font-size: 36px;
 }
 
 h1 {
@@ -107,7 +141,7 @@ h2 {
 }
 
 .circle-container {
-	background: var(--footer-bg);
+	background: var(--highlight1);
 	color: black;
 	position: relative;
 	top: 0px;
@@ -140,10 +174,14 @@ input[type=image] {
 	margin: 0rem;
 }
 
-.trash-icon {
-	height: 2em;
-	width: auto;
+.trash-button {
+	display: inline-flex;
+	align-items: center;
+	background: var(--main-bg);
+	border: 0px;
+	color: white;
 	float: right;
+	cursor: pointer;
 }
 
 .delete-image-form-container {

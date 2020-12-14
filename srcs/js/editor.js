@@ -58,7 +58,7 @@ function uploadImage(event) {
 			var vRatio = canvas.height / img.height;
 			var ratio  = Math.min(hRatio, vRatio);
 
-			context.fillStyle = "white";
+			context.fillStyle = "black";
 			context.fillRect(0, 0, canvas.width, canvas.height);
 			context.drawImage(img, (canvas.width-img.width*ratio) / 2,
 				(canvas.height-img.height*ratio) / 2, img.width*ratio, img.height*ratio);

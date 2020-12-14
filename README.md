@@ -2,7 +2,7 @@
 A responsive photo sharing app, PHP+MySQL, Hive Helsinki school project.
 Only runs locally atm.
 
-![app preview](images/camagru8.png) ![app preview](images/camagru9.png)
+![app preview](images/camagru8.png)
 
 Features:
 - register user
@@ -13,5 +13,3 @@ Features:
 
 ![app preview](images/camagru5.png)
 ![app preview](images/camagru1.png)
-![app preview](images/camagru2.png)
-

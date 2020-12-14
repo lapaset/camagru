@@ -1,8 +1,5 @@
 <?php
 
-//todo: save imgs to database
-//fix email
-
     session_start();
     date_default_timezone_set('Europe/Helsinki');
     

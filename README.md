@@ -13,4 +13,3 @@ Features:
 
 ![app preview](images/camagru5.png)
 ![app preview](images/camagru1.png)
-![app preview](images/camagru9.png)

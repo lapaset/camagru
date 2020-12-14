@@ -3,7 +3,7 @@
 .photo-container {
 	width: 90%;
 	margin: auto;
-	padding-bottom: 2rem;
+	padding-bottom: 1rem;
 }
 
 .header {
@@ -21,7 +21,7 @@
 .stream-img {
 	width: 100%;
 	height: auto;
-	padding: 3rem 0px;
+	padding: 1.5rem 0 1rem 0;
 }
 
 .like-icon {
@@ -38,16 +38,6 @@ input[type=image] {
 	height: 1.2rem;
 }
 
-.comment-form-container input[type=text] {
-	width: 90%;
-	padding-right: 0.3rem;
-}
-
-.comment-form-container input[type=submit] {
-	width: 10%;
-	margin-left: -0.3rem;
-}
-
 @media screen and (max-width: 600px) {	
 	.header {
 		font-size: 1em;
@@ -58,13 +48,5 @@ input[type=image] {
 
 	.photo-container {
 		width: 100%;
-	}
-
-	.comment-form-container input[type=text] {
-		width: 82%;
-	}
-	
-	.comment-form-container input[type=submit] {
-		width: 18%;
 	}
 }

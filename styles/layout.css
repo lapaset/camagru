@@ -162,16 +162,31 @@ h2 {
 
 input {
 	padding: 0.5rem;
-	margin: 0.5rem 0rem;
+	margin: 0.5rem auto;
 }
 
 input[type=password], input[type=text], input[type=email] {
-	width: 100%;
+	width: 98%;
 }
 
 input[type=image] {
 	padding: 0rem;
 	margin: 0rem;
+}
+
+#comment-img-form {
+	margin: auto;
+}
+
+#comment-field {
+    padding-right: 4.5rem;
+}
+
+#comment-button {
+    margin-left: -4.5rem;
+	width: 4rem;
+	background: transparent;
+	border: 0;
 }
 
 .trash-button {

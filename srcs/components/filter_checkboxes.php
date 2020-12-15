@@ -7,7 +7,7 @@
 							<input type="checkbox"
 									name="'.$name.'"
 									id="'.$name.'"
-									onclick="toggleFilter('.$name.')" disabled />
+									onclick="toggleFilter('.$name.')" />
 							<label for="'.$name.'">
 								<img 	class="checkbox-img"
 										src="../filters/'.$name.'.png"

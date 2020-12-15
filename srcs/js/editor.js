@@ -30,6 +30,8 @@ imageLoader.addEventListener('change', uploadImage, false);
 
 video.addEventListener('loadedmetadata', function() {
 	activateCheckboxes();
+	takePhotoButton.disabled = false;
+
 }, false );
 
 function activateCheckboxes() {
@@ -101,9 +103,6 @@ function toggleFilter(values) {
 	if (filter.style.display === "block") {
 		filter.style.display = "none";
 		removeFilter();
-
-		if (filters.length === 0)
-			takePhotoButton.disabled = true;
 
 	} else {
 		filter.style.display = "block";

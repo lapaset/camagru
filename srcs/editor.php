@@ -12,7 +12,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>camagru photo editor</title>
 	<meta charset="UTF-8">

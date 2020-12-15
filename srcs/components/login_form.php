@@ -1,6 +1,6 @@
 <?php
     $login_form = '<div class="form-container">
-                        <form method="post">
+                        <form method="post" autocomplete="off">
                             <label>Username</label><br />
                             <input type="text" name="login" /><br />
                             <label>Password</label><br />

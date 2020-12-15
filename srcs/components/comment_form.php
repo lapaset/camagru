@@ -2,7 +2,7 @@
 
 	if ($_SESSION['user'])
 		echo 	'<div class="comment-form-container">
-					<form class="comment-img-form" action="srcs/comment_img.php" method="post">
+					<form class="comment-img-form" action="srcs/comment_img.php" method="post" autocomplete="off">
 						<input type="hidden" name="photo_id" value="'.$row['id'].'" />
 						<input type="hidden" name="notifications" value="'.$row['notifications'].'" />
 						<input type="hidden" name="email" value="'.$row['email'].'" />

@@ -108,6 +108,17 @@ input[type="checkbox"] {
 	width: 100%;
 }
 
+#description-field {
+    padding-right: 4.5rem;
+}
+
+#save-button {
+    margin-left: -4.5rem;
+	width: 4rem;
+	background: transparent;
+	border: 0;
+}
+
 @media screen and (max-width: 600px) {
 	.circle-container {
 		display: block;

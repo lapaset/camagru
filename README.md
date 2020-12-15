@@ -1,8 +1,12 @@
 # camagru
-A responsive photo sharing app, PHP+MySQL, Hive Helsinki school project.
-Only runs locally atm.
+PHP + MySQL<br/>
+Hive Helsinki school project<br/>
+A responsive photo sharing app<br/>
+Only runs locally atm<br/>
 
-![app preview](images/camagru8.png)
+Demo on Youtube:
+
+[![Demo video on youtube](images/camagru_demo_screenshot.png)](https://youtu.be/uciqGL7cCPM)
 
 Features:
 - register user
@@ -10,6 +14,3 @@ Features:
 - use the webcam or upload a photo
 - add filters and description
 - manage your profile information and photos
-
-![app preview](images/camagru5.png)
-![app preview](images/camagru1.png)
